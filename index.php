@@ -7,6 +7,7 @@
     <title>Projet TechnOld</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="script/slider.js"></script>
 
 </head>
 
@@ -24,44 +25,34 @@
                         <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">A propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Matériel</a>
+                        <a class="nav-link" href="#">Produits</a>
                     </li>
                 </ul>
+                <form class="form-inline my-lg-1 mr-auto">
+                 <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                          <span class="input-group-text">&#128270;</span>
+                     </div>
+                      <input type="text" class="form-control">
+                    </div>
+                </form>
+
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button> &nbsp;
                 <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Inscription</button>
             </div>
         </nav>
+
     </header>
-
-    <div id="slider">
-        <input type="radio" name="slider" id="slide1" checked>
-        <input type="radio" name="slider" id="slide2">
-        <input type="radio" name="slider" id="slide3">
-        <input type="radio" name="slider" id="slide4">
-        <div id="slides">
-            <div id="overflow">
-                <div class="inner">
-                    <div class="slide slide_1">
-                        <div class="slide-content">
-                            <h2>Slide 1</h2>
-                            <p>Content slide 1</p>
-                        </div>
-                    </div>
-                    <div class="slide slide_2">
-                        <div class="slide-content">
-                            <h2>Slide 2</h2>
-                            <p>Content slide 2</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+    <div class="image-accueil">
+        <img src="images/imgAccueil.png" alt="">
+        <div class="bouton">
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Inscription</button>
+        <br>
+        <a href="#">Je suis déja membre</a>
         </div>
     </div>
+    <footer>
+    </footer>
 </body>
-
 
 </html>
