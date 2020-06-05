@@ -74,29 +74,29 @@ $(document).ready(function(){
 	});
 		 
     $("#submit2").on("click",function(event){
-    event.preventDefault();
-    var username = $("#username2").val();  
-	var password = $("#pwd_connect2").val();
-	var email = $("#email").val();   
-    var type_user = $("input[name='type_user']:checked").val();
-    $.ajax({
-        url: "asyncform.php",
-        method: "POST",
-        data: {
-            password: password,
-			username: username,
-			email: email,
-			type_user: type_user
-        },
-        success : function(data){
-            if(data == 'Success'){
-				$("#resultat").html("<p>Inscrit avec succès !</p>");
-				//window.location.replace("index.php");
-            }else{
-                $("#resultat").html("<p>Erreur</p>");
-            }           
-        }
-    });                   
+		event.preventDefault();
+		var username = $("#username2").val();  
+		var password = $("#pwd_connect2").val();
+		var email = $("#email").val();   
+		var type_user = $("input[name='type_user']:checked").val();
+		$.ajax({
+			url: "asyncform.php",
+			method: "POST",
+			data: {
+				password: password,
+				username: username,
+				email: email,
+				type_user: type_user
+			},
+			success : function(data){
+				if(data == 'Success'){
+					$("#resultat").html("<p>Inscrit avec succès !</p>");
+					//window.location.replace("index.php");
+				}else{
+					$("#resultat").html("<p>Erreur</p>");
+				}           
+			}
+		});                   
 	});
 
 
