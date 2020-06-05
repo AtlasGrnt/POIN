@@ -65,7 +65,7 @@ $(document).ready(function(){
         success : function(data){
             if(data == 'Success'){
 				$("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
-				//window.location.replace("index.php");
+				window.location.replace("index.php");
             }else{
                 $("#resultat").html("<p>Vos identifiants sont faux !</p>");
             }           
@@ -91,7 +91,7 @@ $(document).ready(function(){
 			success : function(data){
 				if(data == 'Success'){
 					$("#resultat").html("<p>Inscrit avec succès !</p>");
-					//window.location.replace("index.php");
+					window.location.replace("index.php");
 				}else{
 					$("#resultat").html("<p>Erreur</p>");
 				}           
