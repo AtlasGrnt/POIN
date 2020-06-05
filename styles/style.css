@@ -10,7 +10,8 @@ body {
 
 img {
     vertical-align: middle;
-    opacity: 80%;
+    border-width: 2px;
+    border-style: groove;
 }
 
 .image-accueil {
@@ -23,4 +24,12 @@ img {
     position: absolute;
     left: 734px;
     bottom: 60px;
+}
+
+.fond_color {
+    background-color: white;
+    width: 1500px;
+    height: 860px;
+    position: absolute;
+    left: 11%;
 }

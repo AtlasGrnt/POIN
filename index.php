@@ -43,6 +43,7 @@
         </nav>
 
     </header>
+    <div class="fond_color"></div>
     <div class="image-accueil">
         <img src="images/imgAccueil.png" alt="">
         <div class="bouton">
