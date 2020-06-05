@@ -26,7 +26,7 @@
                         <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produits</a>
+                        <a class="nav-link" href="Produits.php">Produits</a>
                     </li>
                 </ul>
                 <form class="form-inline my-lg-1 mr-auto">
@@ -37,9 +37,7 @@
                       <input type="text" class="form-control">
                     </div>
                 </form>
-
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button> &nbsp;
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Inscription</button>
+                <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>
 
@@ -48,9 +46,7 @@
     <div class="image-accueil">
         <img src="images/imgAccueil.png" class="imageAccueil" alt="">
         <div class="bouton">
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Inscription</button>
-        <br>
-        <a href="#">Je suis déja membre</a>
+        <a href="login.php" class="btn btn-info my-2 my-sm-0" role="button">Connexion/Inscription</a>
         </div>
     </div>
     <footer>
