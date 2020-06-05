@@ -49,4 +49,47 @@ if( isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['type_
         }
     }
 }
+
+if(isset($_POST['TypeProduct'])){
+    $Categorie = intval($_POST['TypeProduct']);
+
+    if($_POST['TypeProduct'] == ""){
+        $return = '';
+        $connect = connexion();
+
+        $requestsql ="SELECT * FROM produits";
+        foreach($connect->query($requestsql) as $index) {
+            $return.="
+        <article>
+            <h3>".$index['name']." </h3>
+            <p>".$index['description']."</p>
+            <p id='image'><img src='images/".$index['images']."'></p>
+            <input class='button' type='button' value='commander'><br>
+        </article><br>;
+        ";
+        }
+
+
+    }
+    else {
+
+        $return = '';
+        $connect = connexion();
+        $requestsql ="SELECT * FROM produits where categorie = $Categorie";
+        foreach($connect->query($requestsql) as $index) {
+            $return.="
+                <article>
+                    <h3>".$index['name']."</h3>
+                    <p>".$index['description']."</p>
+                    <p id='image'><img src='images/".$index['images']."'></p>
+                    <input class='button' type='button' value='commander'><br>
+                </article><br>;
+            ";
+        }
+    }
+
+    echo $return;
+}
+
+
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 03 juin 2020 à 10:01
+-- Généré le :  ven. 05 juin 2020 à 08:27
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -126,7 +126,18 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `date_insert` date NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `fk_categorie` (`categorie`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`id`, `name`, `categorie`, `description`, `images`, `date_insert`) VALUES
+(1, 'écran Samsung u28e590ds', 1, 'écran Samsung 4k neuf', 'EcranSamsung.jpg', '2020-06-04'),
+(2, 'playstation 3', 18, 'playstation 3 occasion avec une manette', 'PS3.png', '2020-06-04'),
+(3, 'iPhone 6SE', 17, 'iPhone 6SE coque rouge. Bonne qualité', 'iphone.png', '2020-06-04'),
+(4, 'Samsung galaxy s8', 17, 'Samsung galaxy s8 coque noir. Bonne qualité', 'galaxyS8.jpg', '2020-06-04'),
+(6, 'disque dur Samsung ', 11, 'disque dur externe Samsung 500go USB', 'disque.jpg', '2020-06-04');
 
 -- --------------------------------------------------------
 
@@ -142,14 +153,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `email` varchar(255) NOT NULL,
   `type_user` char(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `username`, `password`, `email`, `type_user`) VALUES
-(1, 'Admin1', '$1$Q6P8GgMY$RagMaR67Rg.wSzEOP5I/w1', 'kelian.danquigny@gmail.com', 'A');
+(1, 'Admin1', '$1$Q6P8GgMY$RagMaR67Rg.wSzEOP5I/w1', 'kelian.danquigny@gmail.com', 'A'),
+(2, 'clientTest', 'Test', 'test.test@gmail.com', 'C'),
+(3, 'Sopra', 'Sopra', 'Sopra@gmail.com', 'E');
 
 --
 -- Contraintes pour les tables déchargées
