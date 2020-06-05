@@ -6,8 +6,32 @@ $_SESSION['username'];
 ?>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <html lang="fr">
+<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 <body>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.php">Projet TechnOld</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php">Accueil <span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Produits.php">Produits</a>
+                    </li>
+				</ul>
+				<a href="index.php" class="btn btn-info my-2 my-sm-0" role="button">Retour</a>
+            </div>
+        </nav>
+
+	</header>
+	<div class="fond_color"></div>
 	<div class="connect"> 
 		<div class="form-style-6">
 			<h1>Bienvenue sur TechnOld</h1>
@@ -37,13 +61,7 @@ $_SESSION['username'];
 		</div>
 	</div>
 		<p id="resultat"></p>
-    <?php 
-		// check infos de connexion avec la BDD 
-        if ($_SESSION['username'] != NULL ){
-            header('Location: index.php');
-            exit();
-        }
-    ?>
+ 
 </body>
 
 <script>	
@@ -65,7 +83,7 @@ $(document).ready(function(){
         success : function(data){
             if(data == 'Success'){
 				$("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
-				//window.location.replace("index.php");
+				window.location.replace("index.php");
             }else{
                 $("#resultat").html("<p>Vos identifiants sont faux !</p>");
             }           
@@ -91,7 +109,7 @@ $(document).ready(function(){
         success : function(data){
             if(data == 'Success'){
 				$("#resultat").html("<p>Inscrit avec succès !</p>");
-				//window.location.replace("index.php");
+				window.location.replace("index.php");
             }else{
                 $("#resultat").html("<p>Erreur</p>");
             }           
@@ -110,74 +128,3 @@ $(document).ready(function(){
     });
 }); 
 </script>
-
-
-
-<style type="text/css">
-body {
-  background-image: url('');
-  background-size:cover;
-}
-.form-style-6{
-	font: 95% Arial, Helvetica, sans-serif;
-	max-width: 400px;
-	margin: 10px auto;
-	padding: 16px;
-	background: #F7F7F7;
-}
-.form-style-6 h1{
-	background: #43D1AF;
-	padding: 20px 0;
-	font-size: 140%;
-	font-weight: 300;
-	text-align: center;
-	color: #fff;
-	margin: -16px -16px 16px -16px;
-}
-.form-style-6 input[type="text"],
-.form-style-6 input[type="password"]
-{
-	-webkit-transition: all 0.30s ease-in-out;
-	-moz-transition: all 0.30s ease-in-out;
-	-ms-transition: all 0.30s ease-in-out;
-	-o-transition: all 0.30s ease-in-out;
-	outline: none;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	width: 100%;
-	background: #fff;
-	margin-bottom: 4%;
-	border: 1px solid #ccc;
-	padding: 3%;
-	color: #555;
-	font: 95% Arial, Helvetica, sans-serif;
-}
-.form-style-6 input[type="text"]:focus,
-.form-style-6 input[type="password"]:focus
-{
-	box-shadow: 0 0 5px #43D1AF;
-	padding: 3%;
-	border: 1px solid #43D1AF;
-}
-
-.form-style-6 input[type="submit"],
-.form-style-6 input[type="button"]{
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	width: 100%;
-	padding: 3%;
-	background: #43D1AF;
-	border-bottom: 2px solid #30C29E;
-	border-top-style: none;
-	border-right-style: none;
-	border-left-style: none;	
-	color: #fff;
-}
-.form-style-6 input[type="submit"]:hover,
-.form-style-6 input[type="button"]:hover{
-	background: #2EBC99;
-}
-</style>
-

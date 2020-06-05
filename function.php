@@ -17,7 +17,7 @@ function printProducts(){
         <article>
             <h3>".$index['name']."</header> </h3>
             <p>".$index['description']."</p>
-            <p id='image'><img src='images/".$index['images']."'></p>
+            <p><img src='images/".$index['images']."'id='image'></p>
             <input class='buttonCommander' type='button' value='commander'><br>
         </article><br>";
     }

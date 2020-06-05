@@ -4,11 +4,11 @@ session_start();
 
 require "function.php";
 
-if( isset($_POST['username']) && isset($_POST['password'])&& isset($_POST['type_user']) ){
+if( isset($_POST['username']) && isset($_POST['password'])){
     $connect = connexion();
     $username = $_POST['username'];
     
-    if(isset($_POST['email'])){
+    if(isset($_POST['email']) && isset($_POST['type_user'])){
         $email = $_POST['email'];
         $password = crypt($_POST['password']);
         $type = $_POST['type_user'];
@@ -63,7 +63,7 @@ if(isset($_POST['TypeProduct'])){
         <article>
             <h3>".$index['name']." </h3>
             <p>".$index['description']."</p>
-            <p id='image'><img src='images/".$index['images']."'></p>
+            <p><img src='images/".$index['images']."'id='image'></p>
             <input class='button' type='button' value='commander'><br>
         </article><br>;
         ";
@@ -81,7 +81,7 @@ if(isset($_POST['TypeProduct'])){
                 <article>
                     <h3>".$index['name']."</h3>
                     <p>".$index['description']."</p>
-                    <p id='image'><img src='images/".$index['images']."'></p>
+                    <p><img src='images/".$index['images']."' id='image'></p>
                     <input class='button' type='button' value='commander'><br>
                 </article><br>;
             ";

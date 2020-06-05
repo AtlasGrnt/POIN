@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Projet TechnOld</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,23 +24,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Accueil </a>
+                        <a class="nav-link" href="index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">A propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Produits <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="Produits.php">Produits</a><span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Connexion</button> &nbsp;
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Inscription</button>
+                <form class="form-inline my-lg-1 mr-auto">
+                 <div class="input-group mb-3">
+                     <div class="input-group-prepend">
+                          <span class="input-group-text">&#128270;</span>
+                     </div>
+                      <input type="text" class="form-control">
+                    </div>
+                </form>
+                <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>
-    </header>
 
+    </header>
+<div class="fond_color"></div>
 <div>
+    <div class="titre_produit">
     <h2>Les Produits à votre disposition :</h2>   
+    </div>
     <div class="selectproduct"> 
         <label for="products-select">Type de produit :</label>
         <select name="Products" id="products-select">
