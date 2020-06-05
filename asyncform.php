@@ -91,5 +91,38 @@ if(isset($_POST['TypeProduct'])){
     echo $return;
 }
 
+if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['description']) &&  isset($_POST['motif']))
+{
+    $connect = connexion();
+
+    $sql = "INSERT INTO ajout_produit(id_user, name, categorie, description, motif) VALUES(".$_SESSION['id_user'].", \"".$_POST['name']."\", ".intval($_POST['categorie']).", \"".$_POST['description']."\", \"".$_POST['motif']."\"),";
+
+    if($_POST['quantite'] > 1)
+    {
+        for($i = 1; $i < $_POST['quantite']; $i++)
+        {
+            $sql .= "(".$_SESSION['id_user'].", \"".$_POST['name']."\", ".intval($_POST['categorie']).", \"".$_POST['description']."\", \"".$_POST['motif']."\"),";
+        }
+    }
+
+    $sql = substr_replace($sql, ';', -1);
+
+    try
+    {
+        $rep = $connect->prepare($sql);
+        $rep->execute();
+        if($rep)
+        {
+            echo 'success';
+        }
+        else
+        {
+            echo 'error';
+        }
+
+    }catch (PDOException $error){
+        echo "Erreur : ",$error->getMessage();
+    }
+}
 
 ?>
