@@ -45,7 +45,7 @@
     </header>
     <div class="fond_color"></div>
     <div class="image-accueil">
-        <img src="images/imgAccueil.png" alt="">
+        <img src="images/imgAccueil.png" class="imageAccueil" alt="">
         <div class="bouton">
         <button class="btn btn-info my-2 my-sm-0" type="submit">Inscription</button>
         <br>

@@ -8,7 +8,7 @@ body {
     background-size: cover;
 }
 
-img {
+.imageAccueil {
     vertical-align: middle;
     border-width: 2px;
     border-style: groove;
