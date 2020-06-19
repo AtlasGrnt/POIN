@@ -15,7 +15,7 @@
 
     $connect = connexion();
 
-    $sql = "SELECT id, name FROM categorie_produit"
+    $sql = "SELECT id, name FROM categorie_produit";
 
     $rep = $connect->prepare($sql);
     $rep->execute();
@@ -53,6 +53,9 @@
 
         <label for="quantite">Quantité</label><br>
         <input type="number" id="quantite" min="1"><br>
+
+        <label for="inputfile_image" class="label">Choissiez votre Image :</label><br>  
+        <input id="inputfile_image" type="file" class="btn_upload" name="image" accept=" .jpg ,.jpeg ,.gif "><br> 
 
         <input type="button" value="Valider" id="submit">
     </form>
