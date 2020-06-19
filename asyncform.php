@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors', 'off');
+ini_set('display_errors', 'off');
 session_start();
 
 require "function.php";
@@ -147,8 +147,7 @@ if(isset($_POST['action'])){
                     EOD;
                     $stmt = $connect -> prepare($requete);
                     $stmt -> execute();
-                    $sql = "INSERT INTO `produits` (`id`, `name`, `categorie`, `description`, `images`, `date_insert`) VALUES (NULL, '$name', '$id', '$desc', '$name_img', '$date');
-                    ";
+                    $sql = "INSERT INTO `produits` (`id`, `name`, `categorie`, `description`, `images`, `date_insert`) VALUES (NULL, '$name', '$id', '$desc', '$name_img', '$date');";
                     $stmt = $connect -> prepare($sql);
                     $stmt -> execute();
                 }
