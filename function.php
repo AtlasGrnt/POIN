@@ -18,7 +18,7 @@ function printProducts(){
             <h3>".$index['name']."</header> </h3>
             <p>".$index['description']."</p>
             <p><img src='images/".$index['images']."'id='image'></p>
-            <input class='buttonCommander' type='button' value='commander'><br>
+            <input class='buttonCommander' type='button' id='".$index['id']."' value='ajouter au panier'><br>
         </article><br>";
     }
     return $return;

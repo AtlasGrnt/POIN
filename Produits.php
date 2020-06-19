@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -28,6 +32,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Produits.php">Produits</a><span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Panier.php">Panier</a>
                     </li>
                 </ul>
                 <form class="form-inline my-lg-1 mr-auto">
@@ -105,8 +112,18 @@
  
 <script>
     $(document).ready(function(){
-        $("buttonCommander").on('click',function(event){
-
+        $(".buttonCommander").on('click',function(event){
+            var id = $(this).attr('id');
+            
+            $.ajax({
+                url: 'asyncform.php', 
+                method : 'POST',
+                data : { 
+                    IdProduct : id
+                },
+                success : function(data){
+                }
+            }); 
         });
     });
 </script>

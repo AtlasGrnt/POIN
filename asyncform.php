@@ -64,7 +64,7 @@ if(isset($_POST['TypeProduct'])){
             <h3>".$index['name']." </h3>
             <p>".$index['description']."</p>
             <p><img src='images/".$index['images']."'id='image'></p>
-            <input class='button' type='button' value='commander'><br>
+            <input class='button' type='button' id='".$index['id']."' value='ajouter au panier'><br>
         </article><br>;
         ";
         }
@@ -82,7 +82,7 @@ if(isset($_POST['TypeProduct'])){
                     <h3>".$index['name']."</h3>
                     <p>".$index['description']."</p>
                     <p><img src='images/".$index['images']."' id='image'></p>
-                    <input class='button' type='button' value='commander'><br>
+                    <input class='button' type='button' id='".$index['id']."' value='ajouter au panier'><br>
                 </article><br>;
             ";
         }
@@ -90,6 +90,32 @@ if(isset($_POST['TypeProduct'])){
 
     echo $return;
 }
+
+if(isset($_POST['IdProduct'])){
+    $return = '';
+    $connect = connexion();
+    $id = $_POST['IdProduct'];
+    $requestsql ="SELECT * FROM produits where id = '$id' ";
+    $connection = $connect->query($requestsql);
+    $state = $connection->fetch();
+    echo test;
+
+    
+    $id = $state['id'];
+    $nom = $state['name'];
+    $categorie = $state['categorie'];
+    $description = $state['description'];
+    $image = $state['images'];
+    $date = $state['date_insert'] ;
+    $id_user = $_SESSION['id_user'];
+
+    $requete ="INSERT INTO paniers values ('$id','$nom','$categorie','$description','$image','$date', '$id_user')";
+    echo $requete;
+    $stmt = $connect -> prepare($requete);
+    $stmt -> execute();
+    return 'success';
+ }
+    
 
 if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['description']) &&  isset($_POST['motif']))
 {

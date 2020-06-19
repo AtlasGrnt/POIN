@@ -48,25 +48,18 @@ session_start();
         </nav>
 
     </header>
-    <div class="fond_color"></div>
-    <div class="image-accueil">
-        <img src="images/imgAccueil.png" class="imageAccueil" alt="">
-        <div class="bouton">
-        <a href="login.php" class="btn btn-info my-2 my-sm-0" role="button">Connexion/Inscription</a>
-        </div>
-    </div>
+
     <footer>
     </footer>
 </body>
 
-</html>
 
 <?php 
 
-include "function.php";
+$connect = connexion();
+$requestsql ="SELECT * FROM paniers where id_user = '$_SESSION['id_user']'";
+echo $requestsql;
 
+?> 
 
-
-
-?>
-
+</html>
