@@ -20,7 +20,7 @@ session_start();
 <body>
 <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Projet TechnOld</a>
+            <a class="navbar-brand" href="index.php">Projet TechnOld</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,14 +37,6 @@ session_start();
                         <a class="nav-link" href="Panier.php">Panier</a>
                     </li>
                 </ul>
-                <form class="form-inline my-lg-1 mr-auto">
-                 <div class="input-group mb-3">
-                     <div class="input-group-prepend">
-                          <span class="input-group-text">&#128270;</span>
-                     </div>
-                      <input type="text" class="form-control">
-                    </div>
-                </form>
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>

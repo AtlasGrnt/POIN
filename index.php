@@ -35,14 +35,6 @@ session_start();
                         <a class="nav-link" href="Panier.php">Panier</a>
                     </li>
                 </ul>
-                <form class="form-inline my-lg-1 mr-auto">
-                 <div class="input-group mb-3">
-                     <div class="input-group-prepend">
-                          <span class="input-group-text">&#128270;</span>
-                     </div>
-                      <input type="text" class="form-control">
-                    </div>
-                </form>
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>
@@ -54,6 +46,12 @@ session_start();
         <div class="bouton">
         <a href="login.php" class="btn btn-info my-2 my-sm-0" role="button">Connexion/Inscription</a>
         </div>
+    </div>
+
+    <div class="paragrapheA">
+        <p><B>Bienvenue sur notre site "Projet TechnOld"</B><br> Ce projet à pour objectif d'apporter un soutient matériel aux personnes âgées en EHPAD pour que ceux-ci puissent
+            garder contact avec leur famille, se distraire, garder un pied dans le monde informatique d'aujourd'hui grâce à votre aide.
+        </p>
     </div>
     <footer>
     </footer>
