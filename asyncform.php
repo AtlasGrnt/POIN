@@ -168,9 +168,9 @@ if(isset($_POST['action'])){
                 //création du nom unique de l'image
                 $nomimg = md5(time().uniqid());  
                 $extentionimg =$extimg[1];	
-                $nouveauchemin = "D:/wamp64/www/Poin_b2/POIN/images/".$nomimg.'.'.$extentionimg; 
+                echo $nouveauchemin = __DIR__."\images\ ".$nomimg.'.'.$extentionimg;
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $nouveauchemin)){
-                    $connect = connexion();
+                    $connect = connexion(); 
                     $requete = <<<EOD
                     INSERT INTO `images` (`id`, `nom_uniq`, `extention`, `nom_img`, `stamp`, `taille`) VALUES (NULL, '$nomimg', '$extentionimg', '$name', '$date', '$taille');
                     EOD;

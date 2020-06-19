@@ -1,6 +1,7 @@
 <?php 
 
 include "function.php";
+var_dump(__DIR__) ;
 ?>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- //SECTION Formulaire d'upload-->
