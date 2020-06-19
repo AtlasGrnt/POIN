@@ -71,7 +71,6 @@ session_start();
             <input type="text" id="cpltAdresse" placeholder= "Complément d'adresse"><br>
             <input type="text" id="City" placeholder="Ville"><br>
             <input type="number" step="1" id="age" placeholder="âge"><br>
-            <div id="erreurPassword" style="color: red"></div>
             <input type="button" id="ValiderCommande" value="Valider la commande">
 
         </fieldset>
@@ -83,6 +82,11 @@ session_start();
         $(".buttonCommander").on('click',function(event){
             var nom = $("#lastname").val();
             var prénom = $('#Firstname').val();
+            var adresse = $('#adresse').val();
+            var cpltAdresse = $('#cpltAdresse').val();
+            var ville = $('#City').val();
+            var age = $('#age').val();
+
             $.ajax({
                 url: 'asyncform.php', 
                 method : 'POST',
