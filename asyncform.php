@@ -91,7 +91,6 @@ if(isset($_POST['TypeProduct'])){
     echo $return;
 }
 
-<<<<<<< HEAD
 if(isset($_POST['IdProduct'])){
     $return = '';
     $connect = connexion();
@@ -151,8 +150,7 @@ if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['descript
         echo "Erreur : ",$error->getMessage();
     }
 }
-=======
->>>>>>> cdd5f4e604972dea8969e0179141c1912895c1fc
+
 
 
 

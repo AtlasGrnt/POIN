@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 05 juin 2020 à 08:27
+-- Généré le :  ven. 19 juin 2020 à 12:00
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -113,6 +113,50 @@ CREATE TABLE IF NOT EXISTS `detail_commande` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_uniq` varchar(255) NOT NULL,
+  `extension` varchar(10) NOT NULL,
+  `nom_img` varchar(255) NOT NULL,
+  `stamp` date NOT NULL,
+  `taille` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `paniers`
+--
+
+DROP TABLE IF EXISTS `paniers`;
+CREATE TABLE IF NOT EXISTS `paniers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `categorie` int(11) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `images` varchar(255) NOT NULL,
+  `date_insert` date NOT NULL DEFAULT current_timestamp(),
+  `id_user` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_categorie` (`categorie`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `paniers`
+--
+
+INSERT INTO `paniers` (`id`, `name`, `categorie`, `description`, `images`, `date_insert`, `id_user`) VALUES
+(3, 'iPhone 6SE', 17, 'iPhone 6SE coque rouge. Bonne qualité', 'iphone.png', '2020-06-04', 4),
+(4, 'Samsung galaxy s8', 17, 'Samsung galaxy s8 coque noir. Bonne qualité', 'galaxyS8.jpg', '2020-06-04', 4);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `produits`
 --
 
@@ -153,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `email` varchar(255) NOT NULL,
   `type_user` char(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -162,7 +206,8 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `username`, `password`, `email`, `type_user`) VALUES
 (1, 'Admin1', '$1$Q6P8GgMY$RagMaR67Rg.wSzEOP5I/w1', 'kelian.danquigny@gmail.com', 'A'),
 (2, 'clientTest', 'Test', 'test.test@gmail.com', 'C'),
-(3, 'Sopra', 'Sopra', 'Sopra@gmail.com', 'E');
+(3, 'Sopra', 'Sopra', 'Sopra@gmail.com', 'E'),
+(4, 'Antoine Lecomte', '$1$nab/2cH6$vDdTwpOY7MVNZx7pPE18j0', 'antoinea529@gmail.com', 'U');
 
 --
 -- Contraintes pour les tables déchargées
