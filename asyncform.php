@@ -7,8 +7,11 @@ require "function.php";
 if( isset($_POST['username']) && isset($_POST['password'])){
     $connect = connexion();
     $username = $_POST['username'];
-    
+
     if(isset($_POST['email']) && isset($_POST['type_user'])){
+        if ($_POST['type_user'] == 'E'){
+          send_mail("demande Entreprise", "L entreprise ".$_POST['username']." vient de créer un compte entreprise");
+        }
         $email = $_POST['email'];
         $password = crypt($_POST['password']);
         $type = $_POST['type_user'];
@@ -20,8 +23,8 @@ if( isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['user']=$_POST['username'];
         $_SESSION['role']='Utilisateur';
         echo 'Success';
-    }else{        
-                
+    }else{
+
         $requete = <<<EOD
         SELECT * FROM utilisateurs WHERE  username = '$username';
         EOD;
@@ -114,6 +117,7 @@ if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['descript
         if($rep)
         {
             echo 'success';
+            send_mail("Ajout Produit", "ajout de : ".$_POST['name']. "dans les produits");
         }
         else
         {

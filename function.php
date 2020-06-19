@@ -24,4 +24,12 @@ function printProducts(){
     return $return;
 }
 
+function send_mail($subject, $msg1){
+    $to = 'elianfulachier@gmail.com';
+    $message = "Bonjour, <br>$msg1";
+    $headers = 'MIME-Version: 1.0' . "\r\n";
+    $headers .='Content-type: text/html; charset=UTF-8' . "\r\n";
+    mail($to, $subject, $message, $headers);
+}
+
 ?>
