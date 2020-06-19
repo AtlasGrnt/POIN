@@ -94,6 +94,7 @@ if(isset($_POST['TypeProduct'])){
     echo $return;
 }
 
+<<<<<<< HEAD
 if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['description']) &&  isset($_POST['motif']))
 {
     $connect = connexion();
@@ -128,9 +129,12 @@ if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['descript
         echo "Erreur : ",$error->getMessage();
     }
 }
+=======
+>>>>>>> cdd5f4e604972dea8969e0179141c1912895c1fc
 
 if(isset($_POST['action'])){
-    if($_POST['action'] == 'upload_img'){
+    if($_POST['action'] == 'upload'){
+        var_dump($_POST);
         $extentionimg="";
         $message = '';
         $tailleMAX = 2000000; //2 mo pour limite
@@ -162,22 +166,33 @@ if(isset($_POST['action'])){
             $erreur .=' Le fichier est trop lourd  <br>';
         }
         $taille = $_FILES['image']['size'];
-        $name = $_FILES['image']['name'];
+        $name_img = $_FILES['image']['name'];
+        $name = $_POST['name'];
         $date = date("Y-m-d H:i:s");
+        $id = $_SESSION['id_user'];
+        $desc = $_POST['description'];
 
         if($erreur=='' && $bool = true){
                 //création du nom unique de l'image
+<<<<<<< HEAD
                 $nomimg = md5(time().uniqid());
                 $extentionimg =$extimg[1];
                 echo $nouveauchemin = __DIR__."\images\ ".$nomimg.'.'.$extentionimg;
+=======
+                $nomimg = md5(time().uniqid());  
+                $extentionimg =$extimg[1];	
+                $nouveauchemin = __DIR__."\images\ ".$nomimg.'.'.$extentionimg;
+>>>>>>> cdd5f4e604972dea8969e0179141c1912895c1fc
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $nouveauchemin)){
                     $connect = connexion();
                     $requete = <<<EOD
-                    INSERT INTO `images` (`id`, `nom_uniq`, `extention`, `nom_img`, `stamp`, `taille`) VALUES (NULL, '$nomimg', '$extentionimg', '$name', '$date', '$taille');
+                    INSERT INTO `images` (`id`, `nom_uniq`, `extention`, `nom_img`, `stamp`, `taille`) VALUES (NULL, '$nomimg', '$extentionimg', '$name_img', '$date', '$taille');
                     EOD;
                     $stmt = $connect -> prepare($requete);
                     $stmt -> execute();
-                    echo 'Success';
+                    $sql = "INSERT INTO `produits` (`id`, `name`, `categorie`, `description`, `images`, `date_insert`) VALUES (NULL, '$name', '$id', '$desc', '$name_img', '$date');";
+                    $stmt = $connect -> prepare($sql);
+                    $stmt -> execute();
                 }
         }
 
