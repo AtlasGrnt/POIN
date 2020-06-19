@@ -78,4 +78,25 @@ session_start();
     </form>
 </div>
 
+<script>
+    $(document).ready(function(){
+        $(".buttonCommander").on('click',function(event){
+            var nom = $("#lastname").val();
+            var prénom = $('#Firstname').val();
+            $.ajax({
+                url: 'asyncform.php', 
+                method : 'POST',
+                data : { 
+                    TypeProduct :product
+                },
+                success : function(data){
+                    if(data != ' false'){
+                        $('#Produits').html(data);
+                    }
+                }
+            }); 
+        });
+    });
+</script>
+
 </html>
