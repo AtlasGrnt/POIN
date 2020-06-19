@@ -52,14 +52,42 @@ session_start();
     <footer>
     </footer>
 </body>
+    
+
+<div id="Panier">
+    <h2> Récapitulatif de votre commande : </h2>
+    <article>
+       
+        <?php 
+
+            include 'function.php';
+            echo printPanier();
+
+        ?>
 
 
-<?php 
+    </article>
 
-$connect = connexion();
-$requestsql ="SELECT * FROM paniers where id_user = 4";
-echo $requestsql;
 
-?> 
+    <form >
+        <fieldset>
+
+            <legend> Vos coordonnées de livraison : </legend>
+            <input type="radio" name="civility" id="monsieur" value="Monsieur">
+            <label for="monsieur">Monsieur</label><br>
+            <input type="radio" name="civility" id="madame" value="Madame" checked>
+            <label for="madame">Madame</label><br>
+            <input type="text" id="Lastname" placeholder="Nom"><br>
+            <input type="text" id="Firstname" placeholder="Prénom"><br>
+            <input type="text" id="adresse" placeholder="Adresse"><br>
+            <input type="text" id="cpltAdresse" placeholder= "Complément d'adresse"><br>
+            <input type="text" id="City" placeholder="Ville"><br>
+            <input type="number" step="1" id="age" placeholder="âge"><br>
+            <div id="erreurPassword" style="color: red"></div>
+            <input type="button" id="ValiderCommande" value="Valider la commande">
+
+        </fieldset>
+    </form>
+</div>
 
 </html>

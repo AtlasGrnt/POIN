@@ -24,4 +24,21 @@ function printProducts(){
     return $return;
 }
 
+function printPanier(){
+    $return='';
+    $connect = connexion();
+    $IdUSer = $_SESSION['id_user'];
+    $requestsql = "SELECT * from paniers where id_user = $IdUSer";
+    
+    foreach($connect->query($requestsql) as $index){
+        $return.="
+        <p>".$index['name']."</p>
+        <p>".$index['description']."</p>
+        <p><img src='images/".$index['images']."'id='image'></p>
+        ";
+    }
+
+    return $return;
+}
+
 ?>
