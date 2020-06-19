@@ -57,7 +57,7 @@ session_start();
 <?php 
 
 $connect = connexion();
-$requestsql ="SELECT * FROM paniers where id_user = '$_SESSION['id_user']'";
+$requestsql ="SELECT * FROM paniers where id_user = 4";
 echo $requestsql;
 
 ?> 
