@@ -29,10 +29,8 @@
                         <a class="nav-link" href="Produits.php">Produits</a>
                     </li>
                 </ul>
-<<<<<<< HEAD
+
                 <a href="#"><img id="logoPannier" src="images/pannier.png" alt=""></a>
-=======
->>>>>>> 2bf2bbb75a0713f09df509614da959a62a4a647f
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>
