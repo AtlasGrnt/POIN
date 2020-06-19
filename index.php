@@ -31,10 +31,9 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="Produits.php">Produits</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Panier.php">Panier</a>
-                    </li>
                 </ul>
+
+                <a href="Panier.php"><img id="logoPannier" src="images/pannier.png" alt=""></a>
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>

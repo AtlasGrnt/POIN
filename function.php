@@ -33,7 +33,6 @@ function printPanier(){
     foreach($connect->query($requestsql) as $index){
         $return.="
         <p>".$index['name']."</p>
-        <p>".$index['description']."</p>
         <p><img src='images/".$index['images']."'id='image'></p>
         ";
     }

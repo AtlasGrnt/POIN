@@ -16,7 +16,7 @@ session_start();
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="#">Projet TechnOld</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,30 +31,18 @@ session_start();
                     <li class="nav-item">
                         <a class="nav-link" href="Produits.php">Produits</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Panier.php">Panier</a>
-                    </li>
                 </ul>
-                <form class="form-inline my-lg-1 mr-auto">
-                 <div class="input-group mb-3">
-                     <div class="input-group-prepend">
-                          <span class="input-group-text">&#128270;</span>
-                     </div>
-                      <input type="text" class="form-control">
-                    </div>
-                </form>
+
+                <a href="Panier.php"><img id="logoPannier" src="images/pannier.png" alt=""></a>
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>
 
     </header>
-
-    <footer>
-    </footer>
 </body>
     
 
-<div id="Panier">
+<div class="fond_color" id="Panier">
     <h2> Récapitulatif de votre commande : </h2>
     <article>
        
@@ -69,7 +57,7 @@ session_start();
     </article>
 
 
-    <form >
+    <form class="commande">
         <fieldset>
 
             <legend> Vos coordonnées de livraison : </legend>
