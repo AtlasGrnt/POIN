@@ -7,11 +7,14 @@ require "function.php";
 if( isset($_POST['username']) && isset($_POST['password'])){
     $connect = connexion();
     $username = $_POST['username'];
-    
+
     if(isset($_POST['email']) && isset($_POST['type_user'])){
         $email = $_POST['email'];
         $password = crypt($_POST['password']);
         $type = $_POST['type_user'];
+        if ($_POST['type_user'] == 'E'){
+            send_mail("demande Entreprise", "L entreprise ".$_POST['username']." vient de créer un compte entreprise");
+        }
         $requete2 = <<<EOD
         INSERT INTO `utilisateurs` (`id`, `username`, `type_user`, `password`, `email`) VALUES (NULL, '$username', '$type', '$password', '$email');
         EOD;
@@ -20,8 +23,8 @@ if( isset($_POST['username']) && isset($_POST['password'])){
         $_SESSION['user']=$_POST['username'];
         $_SESSION['role']='Utilisateur';
         echo 'Success';
-    }else{        
-                
+    }else{
+
         $requete = <<<EOD
         SELECT * FROM utilisateurs WHERE  username = '$username';
         EOD;
@@ -105,7 +108,7 @@ if(isset($_POST['action'])){
         //recupere l'extention de l'img uploadé
         $extimg = explode('/',$_FILES['image']['type']) ;
         //tableau d'extention autorisé
-        $extentions=array('jpeg','jpg','gif'); 
+        $extentions=array('jpeg','jpg','gif');
 
         $bool = true; $erreur = '';
         /* conditions pour verifier si l'image est conforme */
@@ -137,11 +140,11 @@ if(isset($_POST['action'])){
 
         if($erreur=='' && $bool = true){
                 //création du nom unique de l'image
-                $nomimg = md5(time().uniqid());  
-                $extentionimg =$extimg[1];	
+                $nomimg = md5(time().uniqid());
+                $extentionimg =$extimg[1];
                 $nouveauchemin = __DIR__."\images\ ".$nomimg.'.'.$extentionimg;
                 if(move_uploaded_file($_FILES['image']['tmp_name'], $nouveauchemin)){
-                    $connect = connexion(); 
+                    $connect = connexion();
                     $requete = <<<EOD
                     INSERT INTO `images` (`id`, `nom_uniq`, `extention`, `nom_img`, `stamp`, `taille`) VALUES (NULL, '$nomimg', '$extentionimg', '$name_img', '$date', '$taille');
                     EOD;
@@ -154,6 +157,6 @@ if(isset($_POST['action'])){
         }
 
     }
-} 
+}
 
 ?>
