@@ -125,4 +125,62 @@ if(isset($_POST['name']) && isset($_POST['categorie']) && isset($_POST['descript
     }
 }
 
+
+
+
+if(isset($_POST['action'])){
+    if($_POST['action'] == 'upload_img'){
+        $extentionimg="";
+        $message = '';
+        $tailleMAX = 2000000; //2 mo pour limite
+        var_dump($_FILES);
+        //recupere l'extention de l'img uploadé
+        $extimg = explode('/',$_FILES['image']['type']) ;
+        //tableau d'extention autorisé
+        $extentions=array('jpeg','jpg','gif'); 
+
+        $bool = true; $erreur = '';
+        /* conditions pour verifier si l'image est conforme */
+
+        //ckeck erreur a l'upload
+        if($_FILES['image']['error']!=0 ){
+            $bool = false;
+            $erreur .= 'Erreur lors de l\'upload <br>';
+        }
+
+        //check extention
+        if(!in_array($extimg[1],$extentions)){
+            $bool = false;
+            $erreur .='le type de fichier est incorrect <br>';
+
+        }
+
+        //check taille max
+        if($_FILES['image']['size']> $tailleMAX){
+            $bool = false;
+            $erreur .=' Le fichier est trop lourd  <br>';
+        }
+        $taille = $_FILES['image']['size'];
+        $name = $_FILES['image']['name'];
+        $date = date("Y-m-d H:i:s");
+
+        if($erreur=='' && $bool = true){
+                //création du nom unique de l'image
+                $nomimg = md5(time().uniqid());  
+                $extentionimg =$extimg[1];	
+                $nouveauchemin = "D:/wamp64/www/Poin_b2/POIN/images/".$nomimg.'.'.$extentionimg; 
+                if(move_uploaded_file($_FILES['image']['tmp_name'], $nouveauchemin)){
+                    $connect = connexion();
+                    $requete = <<<EOD
+                    INSERT INTO `images` (`id`, `nom_uniq`, `extention`, `nom_img`, `stamp`, `taille`) VALUES (NULL, '$nomimg', '$extentionimg', '$name', '$date', '$taille');
+                    EOD;
+                    $stmt = $connect -> prepare($requete);
+                    $stmt -> execute();
+                    echo 'Success';
+                }
+        }
+
+    }
+} 
+
 ?>
