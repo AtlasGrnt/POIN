@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -30,7 +34,12 @@
                         <a class="nav-link" href="Produits.php">Produits</a><span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
+
+
+                <a href="Panier.php"><img id="logoPannier" src="images/pannier.png" alt=""></a>
+
                 <a href="#"><img id="logoPannier" src="images/pannier.png" alt=""></a>
+
 
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
@@ -99,8 +108,18 @@
  
 <script>
     $(document).ready(function(){
-        $("buttonCommander").on('click',function(event){
-
+        $(".buttonCommander").on('click',function(event){
+            var id = $(this).attr('id');
+            
+            $.ajax({
+                url: 'asyncform.php', 
+                method : 'POST',
+                data : { 
+                    IdProduct : id
+                },
+                success : function(data){
+                }
+            }); 
         });
     });
 </script>
