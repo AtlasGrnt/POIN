@@ -35,7 +35,12 @@ session_start();
                     </li>
                 </ul>
 
+
                 <a href="Panier.php"><img id="logoPannier" src="images/pannier.png" alt=""></a>
+
+                <a href="#"><img id="logoPannier" src="images/pannier.png" alt=""></a>
+
+
                 <a href="login.php" class="btn btn-success my-2 my-sm-0" role="button">Connexion/Inscription</a>
             </div>
         </nav>

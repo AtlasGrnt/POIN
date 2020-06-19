@@ -152,6 +152,7 @@ article {
 #logoPannier {
     max-height: 53px;
     max-width: 86%;
+
 }
 
 .commande{
@@ -171,4 +172,5 @@ fieldset {
     background-color: rgba(125, 125, 125, 0.1);
 
 }
+
 
